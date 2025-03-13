@@ -9,7 +9,7 @@ Route::post('/requests', [RequestController::class, 'store']);
 Route::middleware('auth:api')->get('/requests', [RequestController::class, 'index']);
 Route::middleware('auth:api')->put('/requests/{id}', [RequestController::class, 'update']);
 
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register'])->middleware('auth:api');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
